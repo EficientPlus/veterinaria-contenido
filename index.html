@@ -1811,7 +1811,7 @@ Al final agregá 6 hashtags relevantes en una línea con el formato exacto: HASH
       // ── IMAGEN ─────────────────────────────────────────
       if (genMode === 'ambas' || genMode === 'imagen') {
         try {
-          const imgRes = await fetch('https://n8n-fo1u.onrender.com/webhook/generar-imagen', {
+          const imgRes = await fetch('https://n8n-eficient.onrender.com/webhook/generar-imagen', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ imagePrompt, aspectRatio: selectedType === 'historia' ? '9:16' : '1:1' })
