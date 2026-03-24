@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veterinaria Baby's — Crear publicación</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --verde: #2D6A4F;
+  --verde-medio: #40916C;
+  --verde-claro: #74C69D;
+  --fondo: #F4F9F6;
+  --naranja: #FF8C00;
+  --naranja-hover: #e67e00;
+  --blanco: #ffffff;
+  --gris-borde: #DDE8E3;
+  --gris-fondo: #EEF4F1;
+  --texto: #1A2E23;
+  --texto-suave: #5A7A6A;
+  --sombra: 0 4px 20px rgba(45,106,79,0.1);
+  --sombra-hover: 0 8px 32px rgba(45,106,79,0.18);
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: var(--verde);
+  padding: 0 24px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icono {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.logo-texto {
+  color: white;
+}
+
+.logo-nombre {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.logo-sub {
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+.btn-guardadas {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-guardadas:hover { background: rgba(255,255,255,0.25); }
+
+.badge {
+  background: var(--naranja);
+  color: white;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--verde-medio), var(--verde-claro));
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.hero-titulo {
+  font-size: 36px;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* LAYOUT DOS COLUMNAS */
+.layout-dos-col {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.col-formulario {
+  width: 420px;
+  flex-shrink: 0;
+}
+
+.col-resultado {
+  flex: 1;
+  min-width: 0;
+}
+
+/* PASOS */
+.paso {
+  background: var(--blanco);
+  border-radius: 24px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--sombra);
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.paso:focus-within {
+  border-color: var(--verde-claro);
+}
+
+.paso-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--verde);
+  color: white;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.paso-titulo {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--texto);
+  margin-bottom: 6px;
+}
+
+.paso-desc {
+  font-size: 14px;
+  color: var(--texto-suave);
+  margin-bottom: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* TIPOS DE PUBLICACIÓN */
+.tipos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.tipo-btn {
+  background: var(--gris-fondo);
+  border: 3px solid var(--gris-borde);
+  border-radius: 18px;
+  padding: 20px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+.tipo-btn:hover {
+  border-color: var(--verde-claro);
+  background: #EBF7F0;
+  transform: translateY(-2px);
+  box-shadow: var(--sombra);
+}
+
+.tipo-btn.activo {
+  border-color: var(--verde);
+  background: #EBF7F0;
+  box-shadow: 0 0 0 2px rgba(45,106,79,0.2);
+}
+
+.tipo-icono {
+  font-size: 38px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tipo-nombre {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--texto);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tipo-desc {
+  font-size: 12px;
+  color: var(--texto-suave);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* TEXTAREA */
+.campo-grande {
+  width: 100%;
+  background: var(--gris-fondo);
+  border: 3px solid var(--gris-borde);
+  border-radius: 18px;
+  padding: 18px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--texto);
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.campo-grande:focus {
+  border-color: var(--verde);
+  background: white;
+}
+
+.campo-grande::placeholder {
+  color: #AAC0B5;
+  font-weight: 600;
+}
+
+/* EJEMPLOS */
+.ejemplos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ejemplo-chip {
+  background: var(--gris-fondo);
+  border: 2px solid var(--gris-borde);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.15s;
+}
+
+.ejemplo-chip:hover {
+  border-color: var(--verde-claro);
+  color: var(--verde);
+  background: #EBF7F0;
+}
+
+/* OPCIONES AVANZADAS */
+.avanzado-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--texto-suave);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  padding: 8px 0;
+  margin-top: 4px;
+  transition: color 0.2s;
+}
+
+.avanzado-toggle:hover { color: var(--verde); }
+
+.avanzado-arrow {
+  transition: transform 0.25s;
+  font-size: 12px;
+}
+
+.avanzado-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  pointer-events: none;
+}
+
+.avanzado-box.abierto {
+  pointer-events: auto;
+}
+
+.avanzado-box.abierto {
+  max-height: 400px;
+}
+
+.avanzado-inner {
+  padding-top: 16px;
+  border-top: 2px dashed var(--gris-borde);
+  margin-top: 12px;
+}
+
+.avanzado-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--texto-suave);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tonos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tono-btn {
+  background: var(--gris-fondo);
+  border: 2px solid var(--gris-borde);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.15s;
+}
+
+.tono-btn:hover { border-color: var(--verde-claro); color: var(--verde); }
+.tono-btn.activo { background: var(--verde); color: white; border-color: var(--verde); }
+
+.modos-grid {
+  display: flex;
+  gap: 8px;
+}
+
+.modo-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid var(--gris-borde);
+  border-radius: 12px;
+  background: var(--gris-fondo);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.modo-btn:hover { border-color: var(--verde-claro); color: var(--verde); }
+.modo-btn.activo { background: var(--verde); color: white; border-color: var(--verde); }
+
+/* BOTÓN GENERAR */
+.btn-generar {
+  width: 100%;
+  background: var(--naranja);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 22px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 24px rgba(255,140,0,0.3);
+  margin-top: 8px;
+}
+
+.btn-generar:hover {
+  background: var(--naranja-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(255,140,0,0.4);
+}
+
+.btn-generar:active { transform: translateY(0); }
+.btn-generar:disabled {
+  background: #CCC;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* RESULTADO */
+.resultado {
+  display: none;
+  animation: aparecer 0.4s ease;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.resultado.visible { 
+  display: block;
+  pointer-events: auto;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resultado-titulo {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--verde);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.resultado-card {
+  background: var(--blanco);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  margin-bottom: 16px;
+  border: 2px solid var(--gris-borde);
+}
+
+.resultado-card-header {
+  background: var(--gris-fondo);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--gris-borde);
+}
+
+.resultado-card-titulo {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--texto);
+}
+
+.btn-accion {
+  background: var(--verde);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-accion:hover { background: var(--verde-medio); }
+.btn-accion.naranja { background: var(--naranja); }
+.btn-accion.naranja:hover { background: var(--naranja-hover); }
+
+.resultado-card-body { padding: 20px; }
+
+.texto-generado {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--texto);
+  white-space: pre-wrap;
+  font-weight: 600;
+}
+
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.hashtag {
+  background: #E8F5EE;
+  border: 2px solid #B8DFC8;
+  color: var(--verde);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* IMAGEN */
+.imagen-contenedor {
+  aspect-ratio: 1;
+  background: var(--gris-fondo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--texto-suave);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 16px;
+  border: 3px dashed var(--gris-borde);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.imagen-contenedor.historia {
+  aspect-ratio: 9/16;
+}
+
+.imagen-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--gris-borde);
+  border-top-color: var(--verde-medio);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar { to { transform: rotate(360deg); } }
+
+.imagen-cargando {
+  position: absolute;
+  inset: 0;
+  background: var(--gris-fondo);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 13px;
+}
+
+.imagen-hint {
+  font-size: 12px;
+  color: var(--texto-suave);
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.btns-descarga {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btns-descarga button {
+  flex: 1;
+}
+
+/* BOTONES ABAJO DEL RESULTADO */
+.resultado-acciones {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.resultado-acciones button {
+  flex: 1;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-guardar {
+  background: var(--naranja);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255,140,0,0.25);
+}
+
+.btn-guardar:hover { background: var(--naranja-hover); transform: translateY(-1px); }
+
+.btn-nueva {
+  background: var(--gris-fondo);
+  color: var(--texto-suave);
+  border: 2px solid var(--gris-borde) !important;
+}
+
+.btn-nueva:hover { border-color: var(--verde-claro) !important; color: var(--verde); }
+
+/* FULLSCREEN */
+.fullscreen-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fullscreen-overlay img {
+  max-width: 90vw;
+  max-height: 75vh;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+.fullscreen-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fullscreen-btns button {
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+/* MODAL API KEY */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  background: white;
+  border-radius: 28px;
+  padding: 36px 32px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal-icono { font-size: 48px; margin-bottom: 12px; text-align: center; }
+.modal-titulo { font-size: 24px; font-weight: 900; color: var(--verde); margin-bottom: 8px; text-align: center; }
+.modal-desc { font-size: 15px; color: var(--texto-suave); margin-bottom: 24px; text-align: center; font-weight: 600; line-height: 1.6; }
+
+.modal-label { font-size: 13px; font-weight: 800; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 8px; }
+
+.modal-input {
+  width: 100%;
+  background: var(--gris-fondo);
+  border: 3px solid var(--gris-borde);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texto);
+  outline: none;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+
+.modal-input:focus { border-color: var(--verde); background: white; }
+
+.modal-btns { display: flex; gap: 10px; }
+.modal-btn-principal { flex: 1; background: var(--naranja); color: white; border: none; border-radius: 14px; padding: 14px; font-size: 16px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; transition: background 0.2s; }
+.modal-btn-principal:hover { background: var(--naranja-hover); }
+.modal-btn-ghost { background: transparent; color: var(--texto-suave); border: 2px solid var(--gris-borde); border-radius: 14px; padding: 14px 18px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; transition: all 0.2s; }
+.modal-btn-ghost:hover { border-color: var(--texto-suave); }
+
+.modal-link { font-size: 13px; color: var(--texto-suave); text-align: center; margin-top: 14px; font-weight: 600; }
+.modal-link a { color: var(--verde); text-decoration: none; font-weight: 800; }
+
+/* PÁGINA MIS GUARDADAS */
+#paginaGuardadas { display: none; }
+#paginaGuardadas.visible { display: block; }
+#paginaPrincipal.oculto { display: none; }
+
+.guardadas-hero {
+  background: linear-gradient(135deg, var(--verde-medio), var(--verde-claro));
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.guardadas-hero-titulo { font-size: 28px; font-weight: 900; color: white; margin-bottom: 4px; }
+.guardadas-hero-sub { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 600; }
+
+.btn-borrar-todo { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; transition: all 0.2s; }
+.btn-borrar-todo:hover { background: rgba(220,38,38,0.3); }
+
+.guardadas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.guardada-card {
+  background: var(--blanco);
+  border: 2px solid var(--gris-borde);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: all 0.2s;
+}
+
+.guardada-card:hover { transform: translateY(-2px); box-shadow: var(--sombra-hover); }
+
+.guardada-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--gris-fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.guardada-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.guardada-body { padding: 16px; }
+.guardada-tipo { display: inline-block; background: #E8F5EE; color: var(--verde); border-radius: 10px; padding: 3px 10px; font-size: 12px; font-weight: 800; margin-bottom: 8px; }
+.guardada-texto { font-size: 14px; color: var(--texto-suave); line-height: 1.5; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 12px; }
+.guardada-acciones { display: flex; gap: 8px; }
+.guardada-btn { flex: 1; padding: 9px; border-radius: 10px; font-size: 13px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; transition: all 0.2s; border: none; text-align: center; }
+.guardada-btn-dl { background: var(--verde); color: white; }
+.guardada-btn-dl:hover { background: var(--verde-medio); }
+.guardada-btn-del { background: #FEE2E2; color: #DC2626; }
+.guardada-btn-del:hover { background: #FECACA; }
+
+.estado-vacio { text-align: center; padding: 60px 20px; color: var(--texto-suave); }
+
+.carpeta-fecha {
+  background: var(--blanco);
+  border: 2px solid var(--gris-borde);
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--sombra);
+  transition: all 0.2s;
+}
+.carpeta-fecha:hover { border-color: var(--verde-claro); transform: translateY(-2px); box-shadow: var(--sombra-hover); }
+.carpeta-fecha.hoy { border-color: var(--naranja); background: #FFF8F0; }
+.carpeta-fecha.hoy .carpeta-nombre { color: var(--naranja); }
+.carpeta-izq { display: flex; align-items: center; gap: 16px; }
+.carpeta-icono { font-size: 32px; }
+.carpeta-nombre { font-size: 17px; font-weight: 900; color: var(--verde); }
+.carpeta-cant { font-size: 13px; color: var(--texto-suave); font-weight: 700; margin-top: 2px; }
+.carpeta-flecha { font-size: 22px; color: var(--texto-suave); font-weight: 900; }
+.estado-vacio div { font-size: 64px; margin-bottom: 16px; }
+.estado-vacio p { font-size: 17px; font-weight: 700; line-height: 1.6; }
+
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  border-top: 2px solid var(--gris-borde);
+  margin-top: 40px;
+}
+
+/* ALERTA API KEY */
+.alerta {
+  background: #FFF8F0;
+  border: 2px solid #FCD5A0;
+  border-left: 5px solid var(--naranja);
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #92400E;
+  margin-bottom: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+.alerta.visible { display: block; }
+
+/* CONFIGURAR API KEY en header */
+.btn-config {
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.25);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-config:hover { background: rgba(255,255,255,0.2); }
+.btn-config.configurado { border-color: #4ADE80; color: #4ADE80; }
+
+@media (max-width: 900px) {
+  .layout-dos-col { flex-direction: column; }
+  .col-formulario { width: 100%; }
+  .hero-titulo { font-size: 26px; }
+  .tipos-grid { grid-template-columns: repeat(2, 1fr); }
+  .resultado-acciones { flex-direction: column; }
+  .modos-grid { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icono">🐾</div>
+    <div class="logo-texto">
+      <div class="logo-nombre">Veterinaria Baby's</div>
+      <div class="logo-sub">Creador de publicaciones</div>
+    </div>
+  </div>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button class="btn-guardadas" onclick="verGuardadas()">
+      📁 Mis guardadas <span class="badge" id="contadorGuardadas">0</span>
+    </button>
+    <button class="btn-config" id="btnConfig" onclick="mostrarModalApiKey()">🔑 API Key</button>
+  </div>
+</header>
+
+<!-- PÁGINA PRINCIPAL -->
+<div id="paginaPrincipal">
+
+  <div class="hero">
+    <div class="hero-titulo">¡Creá tu publicación! 🚀</div>
+    <div class="hero-sub">Rápido, fácil y con inteligencia artificial</div>
+  </div>
+
+  <div class="contenedor">
+
+    <!-- ALERTA API KEY -->
+    <div class="alerta" id="alertaApiKey" onclick="mostrarModalApiKey()">
+      ⚠️ <strong>Falta configurar la API Key.</strong> Tocá acá para configurarla y empezar a crear contenido.
+    </div>
+
+    <div class="layout-dos-col">
+
+    <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+    <div class="col-formulario">
+
+    <!-- PASO 1 -->
+    <div class="paso">
+      <div class="paso-numero">1</div>
+      <div class="paso-titulo">¿Sobre qué querés publicar?</div>
+      <div class="paso-desc">Escribí brevemente el tema o elegí un ejemplo de abajo 👇</div>
+      <textarea
+        class="campo-grande"
+        id="campoTema"
+        placeholder="Ej: baño y corte de pelo para perros grandes, esta semana 20% de descuento..."
+        rows="4"
+      ></textarea>
+      <div class="ejemplos">
+        <button class="ejemplo-chip" onclick="usarEjemplo(this)">🐶 Baño y corte</button>
+        <button class="ejemplo-chip" onclick="usarEjemplo(this)">💉 Vacunación</button>
+        <button class="ejemplo-chip" onclick="usarEjemplo(this)">🚚 Delivery de comida</button>
+        <button class="ejemplo-chip" onclick="usarEjemplo(this)">👩‍⚕️ Consulta sin turno</button>
+        <button class="ejemplo-chip" onclick="usarEjemplo(this)">🛒 Productos nuevos</button>
+      </div>
+
+      <!-- ESTILO VISUAL -->
+      <div style="margin-top:18px; margin-bottom:4px;">
+        <span class="avanzado-label">Estilo de la imagen</span>
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-top:8px;">
+          <button class="tipo-btn activo" id="estiloBtn0" onclick="elegirEstilo(this, 'foto')">
+            <span class="tipo-icono" style="font-size:26px;">📷</span>
+            <span class="tipo-nombre" style="font-size:13px;">Foto real</span>
+          </button>
+          <button class="tipo-btn" id="estiloBtn1" onclick="elegirEstilo(this, 'ilustracion')">
+            <span class="tipo-icono" style="font-size:26px;">🎨</span>
+            <span class="tipo-nombre" style="font-size:13px;">Ilustración</span>
+          </button>
+          <button class="tipo-btn" id="estiloBtn2" onclick="elegirEstilo(this, 'caricatura')">
+            <span class="tipo-icono" style="font-size:26px;">🐾</span>
+            <span class="tipo-nombre" style="font-size:13px;">Caricatura</span>
+          </button>
+          <button class="tipo-btn" id="estiloBtn3" onclick="elegirEstilo(this, 'flat')">
+            <span class="tipo-icono" style="font-size:26px;">🟦</span>
+            <span class="tipo-nombre" style="font-size:13px;">Flat design</span>
+          </button>
+          <button class="tipo-btn" id="estiloBtn4" onclick="elegirEstilo(this, 'acuarela')">
+            <span class="tipo-icono" style="font-size:26px;">🖌️</span>
+            <span class="tipo-nombre" style="font-size:13px;">Acuarela</span>
+          </button>
+          <button class="tipo-btn" id="estiloBtn5" onclick="elegirEstilo(this, 'anime')">
+            <span class="tipo-icono" style="font-size:26px;">✨</span>
+            <span class="tipo-nombre" style="font-size:13px;">Anime</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- TAMAÑO DE IMAGEN -->
+      <div style="margin-top:18px; margin-bottom:4px;">
+        <span class="avanzado-label">Tamaño de la imagen</span>
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <button class="modo-btn activo" id="btnTamCuadrada" onclick="elegirTamano(this, '1:1')">
+            📸 Publicación (cuadrada)
+          </button>
+          <button class="modo-btn" id="btnTamHistoria" onclick="elegirTamano(this, '9:16')">
+            📱 Historia (vertical)
+          </button>
+        </div>
+      </div>
+
+      <!-- OPCIONES AVANZADAS -->
+      <button class="avanzado-toggle" onclick="toggleAvanzado()">
+        <span>⚙️ Opciones avanzadas</span>
+        <span class="avanzado-arrow" id="avanzadoArrow">▼</span>
+      </button>
+      <div class="avanzado-box" id="avanzadoBox">
+        <div class="avanzado-inner">
+          <span class="avanzado-label">Tono del mensaje</span>
+          <div class="tonos-grid">
+            <button class="tono-btn activo" onclick="elegirTono(this)">😊 Amigable</button>
+            <button class="tono-btn" onclick="elegirTono(this)">💼 Profesional</button>
+            <button class="tono-btn" onclick="elegirTono(this)">🎉 Divertido</button>
+            <button class="tono-btn" onclick="elegirTono(this)">❤️ Emotivo</button>
+            <button class="tono-btn" onclick="elegirTono(this)">🔥 Urgente</button>
+          </div>
+          <span class="avanzado-label">¿Qué querés generar?</span>
+          <div class="modos-grid">
+            <button class="modo-btn activo" onclick="elegirModo(this, 'ambas')">✨ Texto + Imagen</button>
+            <button class="modo-btn" onclick="elegirModo(this, 'texto')">📝 Solo texto</button>
+            <button class="modo-btn" onclick="elegirModo(this, 'imagen')">🖼️ Solo imagen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTÓN GENERAR -->
+    <button class="btn-generar" id="btnGenerar" onclick="generarContenido()">
+      ✨ ¡Crear publicación!
+    </button>
+
+    </div><!-- fin col-formulario -->
+
+    <!-- COLUMNA DERECHA: RESULTADO -->
+    <div class="col-resultado">
+
+    <!-- PLACEHOLDER cuando no hay resultado -->
+    <div id="placeholderResultado" style="background:var(--blanco);border-radius:24px;padding:60px 24px;text-align:center;box-shadow:var(--sombra);border:2px dashed var(--gris-borde);">
+      <div style="font-size:64px;margin-bottom:16px;">✨</div>
+      <div style="font-size:20px;font-weight:900;color:var(--verde);margin-bottom:8px;">Tu publicación aparecerá acá</div>
+      <div style="font-size:15px;color:var(--texto-suave);font-weight:600;">Escribí el tema y tocá el botón naranja para empezar</div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="resultado" id="resultado">
+
+      <div class="resultado-titulo">🎉 ¡Tu publicación está lista!</div>
+
+      <!-- TEXTO -->
+      <div class="resultado-card" id="cardTexto">
+        <div class="resultado-card-header">
+          <span class="resultado-card-titulo">📝 Texto para copiar</span>
+          <div style="display:flex;gap:8px;">
+            <button class="btn-accion" style="background:var(--verde-medio);" onclick="regenerarTexto()" id="btnRegenTexto">🔄 Otra versión</button>
+            <button class="btn-accion" onclick="copiarTexto()">📋 Copiar</button>
+          </div>
+        </div>
+        <div class="resultado-card-body">
+          <div class="texto-generado" id="textoGenerado"></div>
+          <div class="hashtags" id="listaHashtags"></div>
+        </div>
+      </div>
+
+      <!-- IMAGEN -->
+      <div class="resultado-card" id="cardImagen">
+        <div class="resultado-card-header">
+          <span class="resultado-card-titulo">🖼️ Imagen generada</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn-accion" style="background:var(--verde-medio);" onclick="regenerarImagen()" id="btnRegenImg">🔄 Otra imagen</button>
+            <button class="btn-accion" style="background:#7B5EA7;" onclick="toggleStories()" id="btnStories">📱 Stories</button>
+            <button class="btn-accion" onclick="descargarJPG()">⬇️ Guardar JPG</button>
+          </div>
+        </div>
+        <div class="resultado-card-body">
+          <div class="imagen-contenedor" id="imagenContenedor" onclick="abrirFullscreen()">
+            <div class="imagen-cargando" id="imagenCargando">
+              <div class="spinner"></div>
+              <span style="font-size:14px;color:var(--texto-suave);font-weight:700;">Generando imagen...</span>
+            </div>
+            <span style="font-size:48px;">🐾</span>
+            <span>La imagen aparecerá acá</span>
+          </div>
+          <p class="imagen-hint">👆 Tocá la imagen para verla en pantalla completa</p>
+        </div>
+      </div>
+
+      <!-- ACCIONES FINALES -->
+      <div class="resultado-acciones">
+        <button class="btn-guardar" onclick="guardarPublicacion()">💾 Guardar en Mis guardadas</button>
+        <button class="btn-nueva" onclick="nuevaPublicacion()">🔁 Crear otra</button>
+      </div>
+
+    </div>
+
+    </div><!-- fin col-resultado -->
+    </div><!-- fin layout-dos-col -->
+
+  </div>
+</div>
+
+<!-- PÁGINA MIS GUARDADAS -->
+<div id="paginaGuardadas">
+  <div class="guardadas-hero">
+    <div>
+      <div class="guardadas-hero-titulo">📁 Mis guardadas</div>
+      <div class="guardadas-hero-sub">Todo el contenido que generaste y guardaste</div>
+    </div>
+    <button class="btn-borrar-todo" onclick="borrarTodo()">🗑️ Borrar todo</button>
+  </div>
+  <div class="contenedor">
+    <div style="margin-bottom:20px;">
+      <button onclick="volverInicio()" style="background:var(--verde);color:white;border:none;border-radius:14px;padding:12px 24px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">← Volver al inicio</button>
+    </div>
+
+    <!-- VISTA CARPETAS POR DÍA -->
+    <div id="vistaCarpetas">
+      <div id="resumenFechas" style="font-size:14px;color:var(--texto-suave);font-weight:700;margin-bottom:16px;"></div>
+      <div id="carpetasFechas"></div>
+      <div class="estado-vacio" id="estadoVacio" style="display:none;">
+        <div>📭</div>
+        <p>Todavía no guardaste ninguna publicación.<br>Generá contenido y tocá <strong>💾 Guardar</strong>.</p>
+      </div>
+    </div>
+
+    <!-- VISTA PUBLICACIONES DE UN DÍA -->
+    <div id="vistaDia" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <button onclick="volverCarpetas()" style="background:var(--verde);color:white;border:none;border-radius:14px;padding:10px 20px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;">← Volver</button>
+        <div id="tituloDia" style="font-size:20px;font-weight:900;color:var(--verde);"></div>
+      </div>
+      <div class="guardadas-grid" id="grillaDia"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FULLSCREEN -->
+<div id="fullscreenOverlay" class="fullscreen-overlay" onclick="cerrarFullscreen()">
+  <img id="fullscreenImg" onclick="event.stopPropagation()">
+  <div class="fullscreen-btns" onclick="event.stopPropagation()">
+    <button onclick="guardarPublicacion()" style="background:var(--naranja);color:white;">💾 Guardar</button>
+    <button onclick="descargarJPG()" style="background:var(--verde);color:white;">⬇️ Descargar JPG</button>
+    <button onclick="cerrarFullscreen()" style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.3);">✕ Cerrar</button>
+  </div>
+</div>
+
+<!-- MODAL API KEY -->
+<div class="modal-overlay" id="modalApiKey" style="display:none;align-items:center;justify-content:center;">
+  <div class="modal">
+    <div class="modal-icono">🔑</div>
+    <div class="modal-titulo">Configurar API Key</div>
+    <div class="modal-desc">Ingresá tu clave de Google AI Studio. Se guarda en tu navegador y nadie más la puede ver.</div>
+    <label class="modal-label">Tu API Key de Gemini</label>
+    <input class="modal-input" id="inputApiKey" type="password" placeholder="AIza...">
+    <div class="modal-btns">
+      <button class="modal-btn-principal" onclick="guardarApiKey()">✅ Guardar</button>
+      <button class="modal-btn-ghost" onclick="eliminarApiKey()">🗑️ Eliminar</button>
+      <button class="modal-btn-ghost" onclick="cerrarModalApiKey()">Cancelar</button>
+    </div>
+    <div class="modal-link">Conseguí tu key gratis en <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a></div>
+  </div>
+</div>
+
+<footer>
+  🐾 Veterinaria Baby's · Creador de contenido con IA · Powered by Google Gemini
+</footer>
+
+<script>
+  let tipoSeleccionado = 'post';
+  let tonoSeleccionado = 'Amigable';
+  let modoSeleccionado = 'ambas';
+  let urlImagenGenerada = null;
+  let modoStories = false;
+  let avanzadoAbierto = false;
+  let aspectRatioSeleccionado = '1:1';
+  let estiloSeleccionado = 'foto';
+
+  const etiquetasTipo = {
+    post: 'post de Instagram',
+    historia: 'historia de Instagram',
+    promo: 'publicación de promoción',
+    tip: 'tip educativo'
+  };
+
+  // ── INIT ──────────────────────────────────────────────
+  window.onload = () => {
+    actualizarContador();
+    if (getApiKey()) {
+      document.getElementById('btnConfig').textContent = '✅ API Key OK';
+      document.getElementById('btnConfig').classList.add('configurado');
+    } else {
+      document.getElementById('alertaApiKey').classList.add('visible');
+    }
+  };
+
+  // ── HELPERS ───────────────────────────────────────────
+  function getApiKey() { return localStorage.getItem('gemini_api_key') || ''; }
+  function getGuardadas() { try { return JSON.parse(localStorage.getItem('publicaciones_guardadas') || '[]'); } catch { return []; } }
+  function setGuardadas(arr) { localStorage.setItem('publicaciones_guardadas', JSON.stringify(arr)); }
+  function actualizarContador() { document.getElementById('contadorGuardadas').textContent = getGuardadas().length; }
+
+  // ── SELECTORES ────────────────────────────────────────
+  function elegirTipo(el, tipo) {
+    tipoSeleccionado = tipo;
+    document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('activo'));
+    el.classList.add('activo');
+  }
+
+  function elegirTono(el) {
+    tonoSeleccionado = el.textContent.trim();
+    document.querySelectorAll('.tono-btn').forEach(b => b.classList.remove('activo'));
+    el.classList.add('activo');
+  }
+
+  function elegirModo(el, modo) {
+    modoSeleccionado = modo;
+    document.querySelectorAll('.modo-btn').forEach(b => b.classList.remove('activo'));
+    el.classList.add('activo');
+    // Mostrar/ocultar cards según modo
+    document.getElementById('cardTexto').style.display = (modo === 'imagen') ? 'none' : 'block';
+    document.getElementById('cardImagen').style.display = (modo === 'texto') ? 'none' : 'block';
+  }
+
+  const estilosPrompt = {
+    foto:        'Canon 5D professional photo, photorealistic, natural warm lighting, shallow depth of field, National Geographic style',
+    ilustracion: 'digital illustration, colorful flat illustration style, clean lines, vibrant colors, modern editorial illustration, no photography',
+    caricatura:  'cute cartoon style, friendly cartoon characters, bright cheerful colors, rounded shapes, kawaii inspired, fun and playful, no photography',
+    flat:        'flat design vector illustration, minimal flat style, bold colors, simple geometric shapes, modern flat design, no photography',
+    acuarela:    'watercolor illustration, soft watercolor painting style, pastel colors, artistic brushstrokes, hand painted look, no photography',
+    anime:       'anime illustration style, cute anime art, vibrant anime colors, manga inspired, clean anime lineart, no photography'
+  };
+
+  function elegirEstilo(el, estilo) {
+    estiloSeleccionado = estilo;
+    document.querySelectorAll('[id^="estiloBtn"]').forEach(b => b.classList.remove('activo'));
+    el.classList.add('activo');
+  }
+
+  function elegirTamano(el, ratio) {
+    aspectRatioSeleccionado = ratio;
+    document.querySelectorAll('#btnTamCuadrada, #btnTamHistoria').forEach(b => b.classList.remove('activo'));
+    el.classList.add('activo');
+    const contenedor = document.getElementById('imagenContenedor');
+    if (contenedor) {
+      contenedor.classList.toggle('historia', ratio === '9:16');
+    }
+  }
+
+  function usarEjemplo(el) {
+    const texto = el.textContent.replace(/^[^\s]+\s/, ''); // sacar el emoji
+    document.getElementById('campoTema').value = texto;
+    document.getElementById('campoTema').focus();
+  }
+
+  function toggleAvanzado() {
+    avanzadoAbierto = !avanzadoAbierto;
+    document.getElementById('avanzadoBox').classList.toggle('abierto', avanzadoAbierto);
+    document.getElementById('avanzadoArrow').style.transform = avanzadoAbierto ? 'rotate(180deg)' : 'rotate(0)';
+  }
+
+  // ── GENERAR ───────────────────────────────────────────
+  async function generarContenido() {
+    const tema = document.getElementById('campoTema').value.trim();
+    if (!tema) { alert('Escribí sobre qué querés publicar primero 😊'); return; }
+
+    const apiKey = getApiKey();
+    if (!apiKey) { mostrarModalApiKey(); return; }
+
+    const btn = document.getElementById('btnGenerar');
+    btn.disabled = true;
+    btn.textContent = '⏳ Creando tu publicación...';
+
+    const resultado = document.getElementById('resultado');
+    resultado.classList.add('visible');
+    document.getElementById('placeholderResultado').style.display = 'none';
+    document.getElementById('textoGenerado').textContent = '';
+    document.getElementById('listaHashtags').innerHTML = '';
+    document.getElementById('cardTexto').style.display = modoSeleccionado === 'imagen' ? 'none' : 'block';
+    document.getElementById('cardImagen').style.display = modoSeleccionado === 'texto' ? 'none' : 'block';
+
+    const imagenCargando = document.getElementById('imagenCargando');
+    if (imagenCargando) imagenCargando.style.display = 'flex';
+    urlImagenGenerada = null;
+
+    const promptTexto = `Sos community manager de Veterinaria Baby's, una veterinaria argentina en Parque Chacabuco.
+Creá un ${etiquetasTipo[tipoSeleccionado] || 'post'} sobre "${tema}".
+Tono: ${tonoSeleccionado}.
+Llamado a la acción: Contactanos por WhatsApp.
+Escribí en texto plano sin asteriscos ni markdown. Usá emojis, sé natural y usá español rioplatense.
+Al final agregá 6 hashtags relevantes en una línea con el formato exacto: HASHTAGS: #tag1 #tag2 #tag3 #tag4 #tag5 #tag6`;
+
+    const estiloDesc = estilosPrompt[estiloSeleccionado] || estilosPrompt.foto;
+    const promptImagen = `${tema} at a veterinary clinic. Happy healthy pet. ${estiloDesc}. No text, no logos, no watermarks, high quality.`;
+
+    try {
+      if (modoSeleccionado === 'ambas' || modoSeleccionado === 'texto') {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: promptTexto }] }] })
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error.message);
+        const textoCompleto = data.candidates[0].content.parts[0].text;
+        const matchHashtags = textoCompleto.match(/HASHTAGS:(.*)/i);
+        const textoLimpio = textoCompleto.replace(/HASHTAGS:.*/is, '').replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/^---+$/gm, '').trim();
+        const hashtags = matchHashtags ? matchHashtags[1].trim().split(/\s+/).filter(t => t.startsWith('#')) : [];
+
+        document.getElementById('textoGenerado').textContent = textoLimpio;
+        const lista = document.getElementById('listaHashtags');
+        lista.innerHTML = '';
+        hashtags.forEach(tag => {
+          const span = document.createElement('span');
+          span.className = 'hashtag';
+          span.textContent = tag;
+          lista.appendChild(span);
+        });
+      }
+
+      // IMAGEN
+      if (modoSeleccionado === 'ambas' || modoSeleccionado === 'imagen') {
+        try {
+          const aspectRatio = aspectRatioSeleccionado;
+          const imgRes = await fetch('https://n8n-eficient.onrender.com/webhook/generar-imagen', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ imagePrompt: promptImagen, aspectRatio })
+          });
+          const imgData = await imgRes.json();
+          if (imgData.success && imgData.image) {
+            urlImagenGenerada = `data:${imgData.mimeType || 'image/png'};base64,${imgData.image}`;
+            const imgEl = document.createElement('img');
+            imgEl.src = urlImagenGenerada;
+            imgEl.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:13px;display:block;cursor:pointer;';
+            const contenedor = document.getElementById('imagenContenedor');
+            contenedor.innerHTML = '';
+            contenedor.appendChild(imgEl);
+          } else {
+            document.getElementById('imagenContenedor').innerHTML = '<span style="font-size:48px">🐾</span><span style="font-weight:700;color:var(--texto-suave)">Imagen no disponible</span>';
+          }
+        } catch {
+          document.getElementById('imagenContenedor').innerHTML = '<span style="font-size:48px">🐾</span><span style="font-weight:700;color:var(--texto-suave)">Imagen no disponible</span>';
+        }
+      } else {
+        document.getElementById('imagenContenedor').innerHTML = '<span style="font-size:48px">📝</span><span style="font-weight:700;color:var(--texto-suave)">Solo texto generado</span>';
+      }
+
+    } catch (err) {
+      document.getElementById('textoGenerado').textContent = '❌ Error: ' + err.message;
+    } finally {
+      if (imagenCargando) imagenCargando.style.display = 'none';
+      btn.disabled = false;
+      btn.textContent = '✨ ¡Crear publicación!';
+      resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ── REGENERAR ─────────────────────────────────────────
+  async function regenerarTexto() {
+    const apiKey = getApiKey();
+    if (!apiKey) { mostrarModalApiKey(); return; }
+    const tema = document.getElementById('campoTema').value.trim();
+    if (!tema) return;
+
+    const btn = document.getElementById('btnRegenTexto');
+    btn.textContent = '⏳ Generando...';
+    btn.disabled = true;
+
+    const prompt = `Sos community manager de Veterinaria Baby's, una veterinaria argentina.
+Creá un ${etiquetasTipo[tipoSeleccionado] || 'post'} DIFERENTE al anterior sobre "${tema}".
+Tono: ${tonoSeleccionado}. CTA: Contactanos por WhatsApp.
+Sin asteriscos, en español rioplatense con emojis.
+HASHTAGS: #tag1 #tag2 #tag3 #tag4 #tag5 #tag6`;
+
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+      const textoCompleto = data.candidates[0].content.parts[0].text;
+      const matchHashtags = textoCompleto.match(/HASHTAGS:(.*)/i);
+      const textoLimpio = textoCompleto.replace(/HASHTAGS:.*/is, '').replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/^---+$/gm, '').trim();
+      const hashtags = matchHashtags ? matchHashtags[1].trim().split(/\s+/).filter(t => t.startsWith('#')) : [];
+      document.getElementById('textoGenerado').textContent = textoLimpio;
+      const lista = document.getElementById('listaHashtags');
+      lista.innerHTML = '';
+      hashtags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'hashtag';
+        span.textContent = tag;
+        lista.appendChild(span);
+      });
+    } catch (err) { alert('Error: ' + err.message); }
+    finally {
+      btn.textContent = '🔄 Otra versión';
+      btn.disabled = false;
+    }
+  }
+
+  async function regenerarImagen() {
+    const btn = document.getElementById('btnRegenImg');
+    btn.textContent = '⏳ Generando...';
+    btn.disabled = true;
+    const tema = document.getElementById('campoTema').value.trim() || 'veterinary clinic';
+    const aspectRatio = aspectRatioSeleccionado;
+    const estiloDesc = estilosPrompt[estiloSeleccionado] || estilosPrompt.foto;
+    const promptImagen = `${tema} at a veterinary clinic. Happy healthy pet. ${estiloDesc}. No text, no logos, no watermarks, high quality.`;
+
+    try {
+      const imagenCargando = document.getElementById('imagenCargando');
+      if (imagenCargando) imagenCargando.style.display = 'flex';
+      const imgRes = await fetch('https://n8n-eficient.onrender.com/webhook/generar-imagen', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imagePrompt: promptImagen, aspectRatio })
+      });
+      const imgData = await imgRes.json();
+      if (imgData.success && imgData.image) {
+        urlImagenGenerada = `data:${imgData.mimeType || 'image/png'};base64,${imgData.image}`;
+        const imgEl = document.createElement('img');
+        imgEl.src = urlImagenGenerada;
+        imgEl.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:13px;display:block;';
+        const contenedor = document.getElementById('imagenContenedor');
+        contenedor.innerHTML = '';
+        contenedor.appendChild(imgEl);
+      }
+    } catch (err) { alert('Error al regenerar imagen: ' + err.message); }
+    finally {
+      const imagenCargando = document.getElementById('imagenCargando');
+      if (imagenCargando) imagenCargando.style.display = 'none';
+      btn.textContent = '🔄 Otra imagen';
+      btn.disabled = false;
+    }
+  }
+
+  // ── STORIES ───────────────────────────────────────────
+  function toggleStories() {
+    modoStories = !modoStories;
+    const btn = document.getElementById('btnStories');
+    const contenedor = document.getElementById('imagenContenedor');
+    if (modoStories) {
+      btn.textContent = '📱 Feed';
+      btn.style.background = 'var(--naranja)';
+      contenedor.style.aspectRatio = '9/16';
+    } else {
+      btn.textContent = '📱 Stories';
+      btn.style.background = '#7B5EA7';
+      contenedor.style.aspectRatio = '1/1';
+    }
+    if (urlImagenGenerada) regenerarImagen();
+  }
+
+  // ── COPIAR ────────────────────────────────────────────
+  function copiarTexto() {
+    const texto = document.getElementById('textoGenerado').textContent;
+    const hashtags = Array.from(document.querySelectorAll('.hashtag')).map(h => h.textContent).join(' ');
+    navigator.clipboard.writeText(texto + '\n\n' + hashtags);
+    event.target.textContent = '✅ ¡Copiado!';
+    setTimeout(() => event.target.textContent = '📋 Copiar', 2000);
+  }
+
+  // ── DESCARGAR ─────────────────────────────────────────
+  function descargarJPG() {
+    if (!urlImagenGenerada) return;
+    const canvas = document.createElement('canvas');
+    const img = new Image();
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/jpeg', 0.95);
+      a.download = `babys-${tipoSeleccionado}-${Date.now()}.jpg`;
+      a.click();
+    };
+    img.src = urlImagenGenerada;
+  }
+
+  // ── FULLSCREEN ────────────────────────────────────────
+  function abrirFullscreen() {
+    if (!urlImagenGenerada) return;
+    document.getElementById('fullscreenImg').src = urlImagenGenerada;
+    document.getElementById('fullscreenOverlay').style.display = 'flex';
+  }
+
+  function cerrarFullscreen() {
+    document.getElementById('fullscreenOverlay').style.display = 'none';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarFullscreen(); });
+
+  // ── GUARDAR ───────────────────────────────────────────
+  function guardarPublicacion() {
+    const texto = document.getElementById('textoGenerado').textContent;
+    if (!texto || texto.startsWith('❌')) { alert('No hay contenido para guardar. Generá una publicación primero.'); return; }
+    const hashtags = Array.from(document.querySelectorAll('.hashtag')).map(h => h.textContent);
+    const guardadas = getGuardadas();
+    guardadas.unshift({
+      id: Date.now(),
+      tipo: tipoSeleccionado,
+      texto,
+      hashtags,
+      imageUrl: urlImagenGenerada,
+      fecha: new Date().toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+    });
+    setGuardadas(guardadas);
+    actualizarContador();
+    event.target.textContent = '✅ ¡Guardado!';
+    setTimeout(() => event.target.textContent = '💾 Guardar en Mis guardadas', 2000);
+  }
+
+  function nuevaPublicacion() {
+    document.getElementById('resultado').classList.remove('visible');
+    document.getElementById('placeholderResultado').style.display = 'block';
+    document.getElementById('campoTema').value = '';
+    document.getElementById('campoTema').focus();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── GUARDADAS ─────────────────────────────────────────
+  const etiquetasTipoLabel = { post: '📸 Post', historia: '⭕ Historia', promo: '🏷️ Promo', tip: '💡 Consejo' };
+
+  function verGuardadas() {
+    document.getElementById('paginaPrincipal').classList.add('oculto');
+    document.getElementById('paginaGuardadas').classList.add('visible');
+    document.getElementById('vistaCarpetas').style.display = 'block';
+    document.getElementById('vistaDia').style.display = 'none';
+    renderCarpetas();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function volverInicio() {
+    document.getElementById('paginaGuardadas').classList.remove('visible');
+    document.getElementById('paginaPrincipal').classList.remove('oculto');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function volverCarpetas() {
+    document.getElementById('vistaDia').style.display = 'none';
+    document.getElementById('vistaCarpetas').style.display = 'block';
+  }
+
+  function renderCarpetas() {
+    const todas = getGuardadas();
+    const contenedor = document.getElementById('carpetasFechas');
+    const vacio = document.getElementById('estadoVacio');
+    const resumen = document.getElementById('resumenFechas');
+
+    if (todas.length === 0) {
+      contenedor.innerHTML = '';
+      vacio.style.display = 'block';
+      resumen.textContent = '';
+      return;
+    }
+    vacio.style.display = 'none';
+
+    // Agrupar por día
+    const grupos = {};
+    todas.forEach(p => {
+      const d = new Date(p.id);
+      const clave = d.toLocaleDateString('es-AR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+      if (!grupos[clave]) grupos[clave] = [];
+      grupos[clave].push(p);
+    });
+
+    const hoy = new Date().toLocaleDateString('es-AR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+    const totalDias = Object.keys(grupos).length;
+    resumen.textContent = `${todas.length} publicación${todas.length !== 1 ? 'es' : ''} en ${totalDias} día${totalDias !== 1 ? 's' : ''}`;
+
+    contenedor.innerHTML = Object.entries(grupos).map(([fecha, pubs]) => `
+      <div class="carpeta-fecha ${fecha === hoy ? 'hoy' : ''}" onclick="abrirCarpeta('${fecha.replace(/'/g, "\\'")}')">
+        <div class="carpeta-izq">
+          <div class="carpeta-icono">${fecha === hoy ? '📅' : '📁'}</div>
+          <div>
+            <div class="carpeta-nombre">${fecha === hoy ? '📌 Hoy — ' + fecha : fecha}</div>
+            <div class="carpeta-cant">${pubs.length} publicación${pubs.length !== 1 ? 'es' : ''}</div>
+          </div>
+        </div>
+        <div class="carpeta-flecha">›</div>
+      </div>
+    `).join('');
+  }
+
+  function abrirCarpeta(fecha) {
+    const todas = getGuardadas();
+    const pubs = todas.filter(p => {
+      const d = new Date(p.id);
+      const clave = d.toLocaleDateString('es-AR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+      return clave === fecha;
+    });
+
+    document.getElementById('vistaCarpetas').style.display = 'none';
+    document.getElementById('vistaDia').style.display = 'block';
+    document.getElementById('tituloDia').textContent = fecha;
+
+    const grilla = document.getElementById('grillaDia');
+    grilla.innerHTML = pubs.map(p => `
+      <div class="guardada-card">
+        <div class="guardada-img" onclick="verImagenGuardada('${p.id}')" style="cursor:pointer;position:relative;">
+          ${p.imageUrl
+            ? `<img src="${p.imageUrl}" alt="imagen"><div style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.6);color:white;border-radius:8px;padding:4px 10px;font-size:12px;font-weight:700;">🔍 Ver</div>`
+            : '<span style="font-size:48px">🐾</span>'}
+        </div>
+        <div class="guardada-body">
+          <span class="guardada-tipo">${etiquetasTipoLabel[p.tipo] || p.tipo}</span>
+          <div class="guardada-texto">${p.texto}</div>
+          <div class="guardada-acciones">
+            <button class="guardada-btn" style="background:#E8F5EE;color:var(--verde);" onclick="copiarTextoGuardado(${p.id}, this)">📋 Copiar</button>
+            <button class="guardada-btn guardada-btn-dl" onclick="descargarGuardada(${p.id})">⬇️ Descargar</button>
+            <button class="guardada-btn guardada-btn-del" onclick="borrarGuardada(${p.id})">🗑️ Borrar</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function verImagenGuardada(id) {
+    const pub = getGuardadas().find(p => p.id == id);
+    if (!pub || !pub.imageUrl) return;
+    document.getElementById('fullscreenImg').src = pub.imageUrl;
+    // Ocultar botón guardar en fullscreen cuando viene de guardadas
+    const overlay = document.getElementById('fullscreenOverlay');
+    overlay.dataset.modo = 'guardada';
+    overlay.style.display = 'flex';
+  }
+
+  function copiarTextoGuardado(id, btn) {
+    const pub = getGuardadas().find(p => p.id == id);
+    if (!pub) return;
+    navigator.clipboard.writeText(pub.texto + '\n\n' + pub.hashtags.join(' '));
+    btn.textContent = '✅ ¡Copiado!';
+    setTimeout(() => btn.textContent = '📋 Copiar', 2000);
+  }
+
+  function borrarGuardada(id) {
+    if (!confirm('¿Seguro que querés borrar esta publicación?')) return;
+    setGuardadas(getGuardadas().filter(p => p.id !== id));
+    actualizarContador();
+    const titulo = document.getElementById('tituloDia').textContent;
+    abrirCarpeta(titulo);
+    // Si quedó vacía la carpeta, volver
+    const todas = getGuardadas();
+    const quedan = todas.filter(p => {
+      const d = new Date(p.id);
+      const clave = d.toLocaleDateString('es-AR', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+      return clave === titulo;
+    });
+    if (quedan.length === 0) volverCarpetas();
+  }
+
+  function borrarTodo() {
+    if (!confirm('¿Seguro que querés borrar todas las publicaciones guardadas?')) return;
+    setGuardadas([]);
+    actualizarContador();
+    volverCarpetas();
+    renderCarpetas();
+  }
+
+  function descargarGuardada(id) {
+    const pub = getGuardadas().find(p => p.id === id);
+    if (!pub) return;
+    const contenido = pub.texto + '\n\n' + pub.hashtags.join(' ');
+    const blob = new Blob([contenido], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `babys-${pub.tipo}-${pub.id}.txt`;
+    a.click();
+  }
+
+  // ── API KEY ───────────────────────────────────────────
+  function mostrarModalApiKey() {
+    document.getElementById('modalApiKey').style.display = 'flex';
+  }
+
+  function cerrarModalApiKey() {
+    document.getElementById('modalApiKey').style.display = 'none';
+  }
+
+  function guardarApiKey() {
+    const key = document.getElementById('inputApiKey').value.trim();
+    if (!key) { alert('Ingresá una API key válida'); return; }
+    localStorage.setItem('gemini_api_key', key);
+    cerrarModalApiKey();
+    const btn = document.getElementById('btnConfig');
+    btn.textContent = '✅ API Key OK';
+    btn.classList.add('configurado');
+    document.getElementById('alertaApiKey').classList.remove('visible');
+  }
+
+  function eliminarApiKey() {
+    localStorage.removeItem('gemini_api_key');
+    cerrarModalApiKey();
+    const btn = document.getElementById('btnConfig');
+    btn.textContent = '🔑 API Key';
+    btn.classList.remove('configurado');
+    document.getElementById('alertaApiKey').classList.add('visible');
+  }
+</script>
+</body>
+</html>
